@@ -2,9 +2,7 @@ import './header.scss';
 
 const Header = () => {
   return (
-    <div className="header-container">
-      header
-    </div>
+    <div className="header-container"></div>
   );
 }
 
