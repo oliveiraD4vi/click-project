@@ -1,25 +1,18 @@
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Route, Routes as RoutesWrapper, BrowserRouter } from 'react-router-dom';
 import { Spin } from 'antd';
 
-import Layout from './screens/Layout/layout';
-import Landing from './screens/LandingPage/landingPage';
-import Register from './screens/Register/register';
-import Login from './screens/Login/login';
+const Layout = lazy(() => import('./screens/Layout/layout'));
+const Landing = lazy(() => import('./screens/LandingPage/landingPage'));
+const Register = lazy(() => import('./screens/Register/register'));
+const Login = lazy(() => import('./screens/Login/login'));
 
 const Routes = () => {
   return(
     <Suspense fallback={<Spin />}>
       <BrowserRouter>
         <RoutesWrapper>
-          <Route
-            path="/"
-            element={
-              <Layout>
-                <Landing />
-              </Layout>
-            }
-          />
+          <Route path="/" element={ <Landing /> } />
           <Route
             path="/register"
             exact
