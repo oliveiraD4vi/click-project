@@ -137,7 +137,7 @@ const Register = () => {
                 loading={loading}
                 type="primary"
                 htmlType="submit"
-                className="button-register"
+                className="primary-button"
               >
                 CADASTRAR
               </Button>
