@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../services/utils';
+import { Button } from 'antd';
 
 import './home.scss';
 
@@ -13,7 +14,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <a onClick={() => logout()}>Sair</a>
+      <Button className="primary-button" onClick={() => logout()}>Sair</Button>
     </div>
   );
 }
