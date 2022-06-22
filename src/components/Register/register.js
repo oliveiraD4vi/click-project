@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MailOutlined, LockOutlined, UserOutlined, FieldNumberOutlined } from '@ant-design/icons';
+import { MailOutlined, LockOutlined, UserOutlined, FieldNumberOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { Form, Input, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
@@ -137,12 +137,22 @@ const Register = () => {
                 loading={loading}
                 type="primary"
                 htmlType="submit"
-                className="button-register"
+                className="primary-button"
               >
                 CADASTRAR
               </Button>
             </Form.Item>
           </Form>
+
+          <Button
+            loading={loading}
+            type="primary"
+            onClick={() => navigate('/login')}
+            className="link-button"
+          >
+            Já tem uma conta? Faça login
+            <ArrowRightOutlined />
+          </Button>
         </div>
       </div>
     </div>

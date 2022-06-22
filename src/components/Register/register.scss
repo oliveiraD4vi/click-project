@@ -32,8 +32,10 @@
         .ant-form-item {
           margin: 0 !important;
           border-bottom: 1px solid #d9d9d9 !important;
+          .ant-input-affix-wrapper-focused,
           .ant-input-affix-wrapper {
             border: none !important;
+            box-shadow: none !important;
           }
         }
         
@@ -43,19 +45,6 @@
         
         .btn {
           margin-bottom: 0;
-
-          .button-register {
-            width: 100%;
-            border: none;
-            margin-top: 20px;
-            font-weight: bold;
-            background-color: #333;
-            transition: all 500ms ease;
-            &:hover,
-            &:focus {
-              background-color: #222;
-            }
-          }
         }
       }
     }

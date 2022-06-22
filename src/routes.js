@@ -2,10 +2,11 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes as RoutesWrapper, BrowserRouter } from 'react-router-dom';
 import { Spin } from 'antd';
 
+const Landing = lazy(() => import('./screens/Public/LandingPage/landingPage'));
+const Register = lazy(() => import('./screens/Public/Register/register'));
+const Login = lazy(() => import('./screens/Public/Login/login'));
+const Home = lazy(() => import('./screens/Private/Home/home'));
 const Layout = lazy(() => import('./screens/Layout/layout'));
-const Landing = lazy(() => import('./screens/LandingPage/landingPage'));
-const Register = lazy(() => import('./screens/Register/register'));
-const Login = lazy(() => import('./screens/Login/login'));
 
 const Routes = () => {
   return(
@@ -28,6 +29,15 @@ const Routes = () => {
             element={
               <Layout>
                 <Login />
+              </Layout>
+            }
+          />
+          <Route
+            path="/home"
+            exact
+            element={
+              <Layout>
+                <Home />
               </Layout>
             }
           />

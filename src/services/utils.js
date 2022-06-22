@@ -1,9 +1,34 @@
 import { notification } from 'antd';
 
-export function Notification (type, message) {
+const AUTH = 'USER';
+
+export function Notification(type, message) {
+  const params = {
+    message,
+    duration: 0,
+    placement: 'top'
+  };
+
   switch (type) {
-    case 'success': notification.success({ message }); break;
-    case 'error': notification.error({ message }); break;
-    default: notification.open({ message }); break;
+    case 'success': notification.success(params); break;
+    case 'error': notification.error(params); break;
+    default: notification.open(params); break;
   }
+};
+
+export const auth = {
+  login(authData) {
+    localStorage.setItem(AUTH, JSON.stringify(authData));
+  },
+  logout() {
+    localStorage.removeItem(AUTH);
+  },
+  isAuthenticated() {
+    if (localStorage.getItem(AUTH) !== null) return true;
+    return false;
+  },
+  getToken() {
+    const { token } = JSON.parse(localStorage.getItem(AUTH));
+    return token;
+  },
 };

@@ -32,3 +32,29 @@
     align-items: center;
   }
 }
+
+.primary-button {
+  width: 100%;
+  border: none;
+  margin-top: 20px;
+  font-weight: bold;
+  background-color: #333;
+  transition: all 500ms ease;
+  &:hover,
+  &:focus {
+    background-color: #222;
+  }
+}
+
+.link-button {
+  border: none;
+  margin-top: 20px;
+  color: #333;
+  background-color: transparent !important;
+  transition: all 500ms ease;
+  &:hover,
+  &:focus {
+    color: #222;
+    background-color: transparent !important;
+  }
+}
