@@ -14,7 +14,13 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Button className="primary-button" onClick={() => logout()}>Sair</Button>
+      <Button
+        type="primary"
+        className="link-button"
+        onClick={() => logout()}
+      >
+        Sair
+      </Button>
     </div>
   );
 }

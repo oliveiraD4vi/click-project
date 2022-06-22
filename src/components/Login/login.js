@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LockOutlined, FieldNumberOutlined } from '@ant-design/icons';
+import { LockOutlined, FieldNumberOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { Form, Input, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
@@ -103,6 +103,16 @@ const Login = () => {
               </Button>
             </Form.Item>
           </Form>
+
+          <Button
+            loading={loading}
+            type="primary"
+            onClick={() => navigate('/register')}
+            className="link-button"
+          >
+            <ArrowLeftOutlined />
+            Ainda não tem uma conta? Cadastre-se
+          </Button>
         </div>
       </div>
     </div>
