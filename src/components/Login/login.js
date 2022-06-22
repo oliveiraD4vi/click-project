@@ -31,7 +31,7 @@ const Login = () => {
       auth.login(data.authData);
       
       Notification('success', data.message);
-      navigate('/');
+      navigate('/home');
     } catch (error) {
       setLoading(false);
       setDisabled(false);
