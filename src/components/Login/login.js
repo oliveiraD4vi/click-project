@@ -39,7 +39,7 @@ const Login = () => {
       const { data } = error.response;
       Notification('error', data.message);
     }
-  }
+  };
 
   return (
     <div className="login-container">
