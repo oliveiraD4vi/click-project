@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { MailOutlined, LockOutlined, UserOutlined, FieldNumberOutlined, ArrowRightOutlined } from '@ant-design/icons';
+import { MailOutlined, LockOutlined, UserOutlined, FieldNumberOutlined } from '@ant-design/icons';
 import { Form, Input, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import { Notification } from '../../services/utils';
 import api from '../../services/api';
+
+import Logo from '../../assets/logo-black.png';
 
 import './register.scss';
 
@@ -44,6 +46,10 @@ const Register = () => {
   return (
     <div className="register-container">
       <div className="register-box">
+        <a href="/">
+          <img src={Logo} alt="logo-black" />
+        </a>
+
         <div className="register-box-in">
           <Form form={form} className="register-form" onFinish={handleSubmit}>
             <Form.Item
@@ -63,26 +69,6 @@ const Register = () => {
                 disabled={disabled}
                 prefix={<UserOutlined className="icon" />}
                 placeholder="Nome"
-              />
-            </Form.Item>
-
-            <Form.Item
-              name="email"
-              rules={[
-                {
-                  required: true,
-                  message: 'Digite seu e-mail',
-                },
-                {
-                  type: 'email',
-                  message: 'Esse e-mail não é válido',
-                },
-              ]}
-            >
-              <Input
-                disabled={disabled}
-                prefix={<MailOutlined className="icon" />}
-                placeholder="Email"
               />
             </Form.Item>
 
@@ -107,6 +93,26 @@ const Register = () => {
                 disabled={disabled}
                 prefix={<FieldNumberOutlined className="icon" />}
                 placeholder="Matrícula"
+              />
+            </Form.Item>
+
+            <Form.Item
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  message: 'Digite seu e-mail',
+                },
+                {
+                  type: 'email',
+                  message: 'Esse e-mail não é válido',
+                },
+              ]}
+            >
+              <Input
+                disabled={disabled}
+                prefix={<MailOutlined className="icon" />}
+                placeholder="Email"
               />
             </Form.Item>
 
@@ -151,7 +157,6 @@ const Register = () => {
             className="link-button"
           >
             Já tem uma conta? Faça login
-            <ArrowRightOutlined />
           </Button>
         </div>
       </div>
