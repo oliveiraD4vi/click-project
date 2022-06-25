@@ -45,7 +45,7 @@ const Register = () => {
     <div className="register-container">
       <div className="register-box">
         <div className="register-box-in">
-          <span className="description">
+          <span className="register-description">
             CRIE SUA CONTA CLICK
           </span>
 
@@ -148,14 +148,10 @@ const Register = () => {
             </Form.Item>
           </Form>
 
-          <Button
-            loading={loading}
-            type="primary"
-            onClick={() => navigate('/login')}
-            className="link-button"
-          >
-            Já tem uma conta? Faça login
-          </Button>
+          <p className="login-link">
+            Já tem uma conta?
+            <span onClick={() => navigate('/login')}> Faça login</span>
+          </p>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { Menu } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { auth } from '../../services/utils';
 
-import Logo from '../../assets/logo-white.svg';
+import Logo from '../../assets/logo-white.png';
 
 import './header.scss';
 

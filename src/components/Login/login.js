@@ -45,7 +45,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-box">
         <div className="login-box-in">
-          <span className="description">
+          <span className="login-description">
             FAÇA LOGIN PARA VOTAR
           </span>
 
@@ -107,15 +107,11 @@ const Login = () => {
               </Button>
             </Form.Item>
           </Form>
-
-          <Button
-            loading={loading}
-            type="primary"
-            onClick={() => navigate('/register')}
-            className="link-button"
-          >
-            Ainda não tem uma conta? Cadastre-se
-          </Button>
+          
+          <p className="register-link">
+            Ainda não tem uma conta?
+            <span onClick={() => navigate('/register')}> Cadastre-se</span>
+          </p>
         </div>
       </div>
     </div>

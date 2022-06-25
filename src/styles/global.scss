@@ -49,11 +49,12 @@
     background-image: url('../assets/background-black.png');
     background-repeat: no-repeat;
     background-size: cover;
-
     img {
       width: 40%;
+      &:hover {
+        cursor: pointer;
+      }
     }
-
     p {
       position: relative;
       left: 50px;
@@ -69,9 +70,12 @@
 
 .primary-button {
   width: 100%;
+  height: auto;
   border: none;
+  padding: 4px 15px !important;
   margin-top: 20px;
   font-weight: bold;
+  font-size: 18px !important;
   background-color: #1FCE65;
   transition: all 500ms ease;
   &:hover,
@@ -85,6 +89,7 @@
   margin-top: 20px;
   color: #AAAAAA;
   background-color: transparent !important;
+  font-size: 18px !important;
   transition: all 500ms ease;
   &:hover,
   &:focus {
