@@ -20,7 +20,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 10px 50px;
+  padding: 10px 100px;
 }
 
 .layout-container {
@@ -43,20 +43,39 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 50%;
+    width: 60%;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    background-image: url('../assets/background-green.png');
+    background-image: url('../assets/background-black.png');
     background-repeat: no-repeat;
     background-size: cover;
+    img {
+      width: 40%;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    p {
+      position: relative;
+      left: 50px;
+      bottom: 15px;
+      font-size: 20px;
+      color: #FFFFFF;
+      span {
+        font-weight: bold;
+      }
+    }
   }
 }
 
 .primary-button {
   width: 100%;
+  height: auto;
   border: none;
+  padding: 4px 15px !important;
   margin-top: 20px;
   font-weight: bold;
+  font-size: 18px !important;
   background-color: #1FCE65;
   transition: all 500ms ease;
   &:hover,
@@ -70,6 +89,7 @@
   margin-top: 20px;
   color: #AAAAAA;
   background-color: transparent !important;
+  font-size: 18px !important;
   transition: all 500ms ease;
   &:hover,
   &:focus {

@@ -6,8 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { Notification } from '../../services/utils';
 import api from '../../services/api';
 
-import Logo from '../../assets/logo-black.png';
-
 import './register.scss';
 
 const Register = () => {
@@ -46,11 +44,11 @@ const Register = () => {
   return (
     <div className="register-container">
       <div className="register-box">
-        <a href="/">
-          <img src={Logo} alt="logo-black" />
-        </a>
-
         <div className="register-box-in">
+          <span className="register-description">
+            CRIE SUA CONTA CLICK
+          </span>
+
           <Form form={form} className="register-form" onFinish={handleSubmit}>
             <Form.Item
               name="name"
@@ -150,14 +148,10 @@ const Register = () => {
             </Form.Item>
           </Form>
 
-          <Button
-            loading={loading}
-            type="primary"
-            onClick={() => navigate('/login')}
-            className="link-button"
-          >
-            Já tem uma conta? Faça login
-          </Button>
+          <p className="login-link">
+            Já tem uma conta?
+            <span onClick={() => navigate('/login')}> Faça login</span>
+          </p>
         </div>
       </div>
     </div>
