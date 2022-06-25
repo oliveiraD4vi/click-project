@@ -43,12 +43,27 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 50%;
+    width: 60%;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    background-image: url('../assets/background-green.png');
+    background-image: url('../assets/background-black.png');
     background-repeat: no-repeat;
     background-size: cover;
+
+    img {
+      width: 40%;
+    }
+
+    p {
+      position: relative;
+      left: 50px;
+      bottom: 15px;
+      font-size: 20px;
+      color: #FFFFFF;
+      span {
+        font-weight: bold;
+      }
+    }
   }
 }
 

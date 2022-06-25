@@ -6,8 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { Notification, auth } from '../../services/utils';
 import api from '../../services/api';
 
-import Logo from '../../assets/logo-black.png';
-
 import './login.scss';
 
 const Login = () => {
@@ -46,11 +44,11 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <a href="/">
-          <img src={Logo} alt="logo-black" />
-        </a>
-
         <div className="login-box-in">
+          <span className="description">
+            FAÇA LOGIN PARA VOTAR
+          </span>
+
           <Form form={form} className="login-form" onFinish={handleSubmit}>
             <Form.Item
               name="matricula"
