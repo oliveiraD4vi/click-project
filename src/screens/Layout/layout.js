@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import { userRoutes } from '../../services/constants';
 
 import Header from '../../components/Header/header';
-import Footer from '../../components/Footer/footer';
 
 const Layout = ({ children }) => {
   const [path, setPath] = useState('');
@@ -23,16 +22,12 @@ const Layout = ({ children }) => {
       <div
         className="main"
         style={userRoutes[path]
-          ? { height: '80%' }
+          ? { height: '90%' }
           : { height: '100%' }
         }
       >
         {children}
       </div>
-
-      {userRoutes[path] ? (
-        <Footer />
-      ) : null}
     </div>
   );
 };
