@@ -1,4 +1,53 @@
 .header-container {
-  height: 5%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
   border-bottom: 1px solid #ededed;
+  background-color: #0E151F;
+
+  .brand {
+    &:hover {
+      cursor: pointer;
+    }
+    img {
+      width: 80%;
+    }
+  }
+
+  .navigation {
+    .navigation-menu {
+      background-color: transparent !important;
+      border: none !important;
+      .ant-menu-title-content {
+        font-size: 20px !important;
+        color: #FFFFFF !important;
+      }
+    }
+    .ant-menu-item {
+      padding: 0 !important;
+      margin: 0 35px !important;
+    }
+    .ant-menu-inline .ant-menu-item, .ant-menu-inline .ant-menu-submenu-title {
+      width: auto !important;
+    }
+    .ant-menu-item-selected {
+      background-color: transparent !important;
+      &::after {
+        border: none !important;
+      }
+      .ant-menu-title-content {
+        color: #1FCE65 !important;
+        border-bottom: 2px solid #1FCE65;
+      }
+    }
+    .ant-menu-inline.ant-menu-root {
+      display: flex !important;
+      flex-direction: row !important;
+    }
+    .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected::after {
+      border-bottom: 2px solid #1FCE65 !important;
+    }
+  }
 }
