@@ -16,8 +16,7 @@ const Card = ({ id }) => {
           `http://www.omdbapi.com/?&apikey=e28771f6&type=movie&i=${id}`
         );
         const { data } = response;
-        console.log(data);
-        setMovieData(data.films);
+        setMovieData(data);
       } catch (error) {
         const { data } = error.response;
         Notification('error', data.message);
@@ -25,24 +24,24 @@ const Card = ({ id }) => {
     }
 
     fetchData();
-  }, []);
+  }, [id]);
 
   const onChange = (e) => {
     console.log(`checked = ${e.target.checked}`);
   };
 
-  return (
+  return movieData ? (
     <div className="card-container">
-      {/* <div className="poster">
-        <img src={poster} alt="movie poster" />
-      </div> */}
+      <div className="poster">
+        <img src={movieData.Poster} alt="movie poster" />
+      </div>
       <div className="checkbox-container">
         <Checkbox onChange={onChange}>
-          titulo
+          {movieData.Title}
         </Checkbox>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Card;

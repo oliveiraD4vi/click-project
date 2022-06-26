@@ -17,7 +17,6 @@ const Voting = ({ id }) => {
           `/voting/films/list?voting_id=${id}`
         );
         const { data } = response;
-        console.log(data);
         setMovieData(data.films);
       } catch (error) {
         const { data } = error.response;
@@ -26,7 +25,7 @@ const Voting = ({ id }) => {
     }
 
     fetchData();
-  }, []);
+  }, [id]);
 
   return movieData ? (
     <div className="voting-container">
