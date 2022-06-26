@@ -13,7 +13,14 @@ const Routes = () => {
     <Suspense fallback={<Spin />}>
       <BrowserRouter>
         <RoutesWrapper>
-          <Route path="/" element={ <Landing /> } />
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <Landing />
+              </Layout>
+            }
+          />
           <Route
             path="/register"
             exact
