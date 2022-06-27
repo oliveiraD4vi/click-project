@@ -2,6 +2,7 @@ import { Spin } from 'antd';
 import { useEffect, useState } from 'react';
 import { Notification } from '../../../services/utils';
 
+import moment from 'moment';
 import Voting from './Voting/voting';
 import api from '../../../services/api';
 
@@ -32,7 +33,12 @@ const Home = () => {
   return votingData ? (
     <div className="home-container">
       {votingData.current
-          ? <Voting id={votingData.id} />
+          ? <Voting
+              id={votingData.id}
+              date={moment(
+                votingData.createdAt
+              ).format('DD/MM/YYYY')}
+            />
           : noVoting
         }
     </div>

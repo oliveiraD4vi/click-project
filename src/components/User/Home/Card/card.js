@@ -1,4 +1,3 @@
-import { Checkbox } from 'antd';
 import { useState, useEffect } from 'react';
 import { Notification } from '../../../../services/utils';
 
@@ -6,7 +5,7 @@ import axios from 'axios';
 
 import './card.scss';
 
-const Card = ({ id }) => {
+const Card = ({ id, list, setList }) => {
   const [movieData, setMovieData] = useState(null);
 
   useEffect(() => {
@@ -26,19 +25,13 @@ const Card = ({ id }) => {
     fetchData();
   }, [id]);
 
-  const onChange = (e) => {
-    console.log(`checked = ${e.target.checked}`);
-  };
-
   return movieData ? (
     <div className="card-container">
       <div className="poster">
         <img src={movieData.Poster} alt="movie poster" />
       </div>
       <div className="checkbox-container">
-        <Checkbox onChange={onChange}>
-          {movieData.Title}
-        </Checkbox>
+        {movieData.Title}
       </div>
     </div>
   ) : null;
