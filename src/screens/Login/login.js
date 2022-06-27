@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import LoginComponent from '../../../components/Login/login';
+import LoginComponent from '../../components/Login/login';
 
-import Logo from '../../../assets/logo-white.svg';
+import Logo from '../../assets/logo-white.svg';
 
 const Login = () => {
   const navigate = useNavigate();

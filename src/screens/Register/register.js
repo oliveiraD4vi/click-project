@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import RegisterComponent from '../../../components/Register/register';
+import RegisterComponent from '../../components/Register/register';
 
-import Logo from '../../../assets/logo-white.svg';
+import Logo from '../../assets/logo-white.svg';
 
 const Register = () => {
   const navigate = useNavigate();
