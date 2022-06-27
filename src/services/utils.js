@@ -31,4 +31,8 @@ export const auth = {
     const { token } = JSON.parse(localStorage.getItem(AUTH));
     return token;
   },
+  getId() {
+    const { userId } = JSON.parse(localStorage.getItem(AUTH));
+    return userId;
+  },
 };
