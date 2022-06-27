@@ -4,36 +4,20 @@
   align-items: center;
   justify-content: center;
 
-  .voting-header {
-    width: 100%;
-    .date {
-      display: flex;
-      margin: 10px 0;
-      h2 {
-        font-size: 32px;
-        color: #1FCE65;
-        font-weight: bold;
-        margin: 0 !important;
-      }
-      .line {
-        bottom: 8px;
-        margin-left: 5px;
-        position: relative;
-        width: 100% !important;
-        border-bottom: 2px solid #1FCE65;
-      }
-    }
-    p {
-      font-size: 32px;
-      font-weight: bold;
-      margin: 10px 0 20px 0 !important;
-    }
-  }
-
   .radio-list {
     display: flex;
     .ant-radio-wrapper {
-      border: 3px solid #0E151F;
+      margin: 0 20px 0 0 !important;
+      &:hover {
+        .card-container {
+          .bottom-container {
+            border: 3px solid #1FCE65;
+          }
+        }
+      }
+      &:last-child {
+        margin: 0 !important;
+      }
       span {
         padding: 0 !important;
       }
@@ -41,8 +25,52 @@
         display: none !important;
       }
     }
+
+    .not-selectable {
+      &:hover {
+        cursor: default !important;
+        .card-container {
+          .bottom-container {
+            border: 3px solid #EDEDED !important;
+          }
+        }
+      }
+
+      .card-container {
+        .bottom-container {
+          border: 3px solid #EDEDED !important;
+          justify-content: space-between !important;
+          .checkbox-container {
+            display: none !important;
+          }
+          .details {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
     .ant-radio-wrapper-checked {
-      border: 3px solid #1FCE65 !important;
+      .card-container {
+        .bottom-container {
+          border: 3px solid #1FCE65;
+          .checkbox {
+            background-color: #1FCE65;
+            border: 3px solid #1FCE65;
+          }
+        }
+      }
+    }
+  }
+
+  .bottom-caption {
+    font-size: 20px;
+    margin-top: 50px;
+    span {
+      color: #FF0000;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
