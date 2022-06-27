@@ -33,7 +33,17 @@
   .radio-list {
     display: flex;
     .ant-radio-wrapper {
-      border: 3px solid #0E151F;
+      margin: 0 20px 0 0 !important;
+      &:hover {
+        .card-container {
+          .bottom-container {
+            border: 3px solid #1FCE65;
+          }
+        }
+      }
+      &:last-child {
+        margin: 0 !important;
+      }
       span {
         padding: 0 !important;
       }
@@ -41,8 +51,21 @@
         display: none !important;
       }
     }
+
     .ant-radio-wrapper-checked {
-      border: 3px solid #1FCE65 !important;
+      .card-container {
+        .bottom-container {
+          border: 3px solid #1FCE65;
+          .checkbox {
+            background-color: #1FCE65;
+            border: 3px solid #1FCE65;
+            .anticon {
+              color: #FFFFFF;
+              display: block !important;
+            }
+          }
+        }
+      }
     }
   }
 }

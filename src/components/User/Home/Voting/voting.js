@@ -53,9 +53,14 @@ const Voting = ({ id, date }) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        await api.get(`/voting/check?userId=${auth.getId()}`);
+        const response = await api.get(
+          `/voting/check?userId=${auth.getId()}`
+        );
+        const { data } = response;
+        setVoted(data.voted);
       } catch (error) {
-        setVoted(true);
+        const { data } = error.response;
+        Notification('error', data.message);
       }
     }
 
@@ -76,7 +81,7 @@ const Voting = ({ id, date }) => {
         <p>
           {voted 
             ? 'Você já votou para essa exibição, aguarde o encerramento para ver o resultado'
-            : 'Qual filme você quer que passe no cineEscola?'
+            : 'Qual filme você quer ver no cineEscola?'
           }
         </p>
       </div>
@@ -103,6 +108,8 @@ const Voting = ({ id, date }) => {
             htmlType="submit"
             className="primary-button"
             onClick={handleSubmit}
+            disabled={value ? false : true}
+            style={{ width: "20%", marginTop: "50px" }}
           >
             VOTAR
           </Button>
