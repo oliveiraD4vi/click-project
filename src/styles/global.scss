@@ -127,3 +127,21 @@
     margin: 10px 0 20px 0 !important;
   }
 }
+
+
+.tecno-info {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: 50% 50%;
+  .info {
+    display: flex;
+    flex-direction: column;
+    p {
+      font-size: 14px;
+      margin: 0 !important;
+    }
+    span { 
+      font-weight: bold !important;
+    }
+  }
+}

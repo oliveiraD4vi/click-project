@@ -33,6 +33,38 @@ const Home = () => {
           <div className="info">
             <h3>{movieData.Plot}</h3>
           </div>
+
+          <div className="tecno-info">
+            <div className="info">
+              <p>LANÇAMENTO</p>
+              <span>{movieData.Released}</span>
+            </div>
+
+            <div className="info">
+              <p>DURAÇÃO</p>
+              <span>{movieData.Runtime}</span>
+            </div>
+
+            <div className="info">
+              <p>GÊRNERO</p>
+              <span>{movieData.Genre}</span>
+            </div>
+
+            <div className="info">
+              <p>DIRETORES</p>
+              <span>{movieData.Director}</span>
+            </div>
+
+            <div className="info">
+              <p>PAÍS</p>
+              <span>{movieData.Country}</span>
+            </div>
+
+            <div className="info">
+              <p>LINGUAGEM</p>
+              <span>{movieData.Language}</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -45,7 +77,7 @@ const Home = () => {
 
   useEffect(() => {
     async function fetchData() {
-      if (votingData.result) {
+      if (votingData && votingData.result) {
         try {
           const response = await axios.get(
             `http://www.omdbapi.com/?&apikey=e28771f6&type=movie&i=${votingData.result}`
