@@ -1,5 +1,6 @@
 import { Radio, Spin, Button } from 'antd';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Notification } from '../../../../services/utils';
 import { auth } from '../../../../services/utils';
 
@@ -14,22 +15,25 @@ const Voting = ({ id, date }) => {
   const [voted, setVoted] = useState(false);
   const [value, setValue] = useState(null);
 
+  const navigate = useNavigate();
+
   const handleSubmit = async () => {
     setLoading(true);
 
-    try {
-      const response = await api.put('/voting/vote', {
-        film_id: value,
-        user_id: auth.getId()
-      });
-      const { data } = response;      
-      Notification('success', data.message);
-      document.location.reload(true);
-    } catch (error) {
-      setLoading(false);
+    if (value && auth.getId()) {
+      try {
+        const response = await api.put(
+          `/voting/vote?userId=${auth.getId()}&filmId=${value}`
+        );
+        const { data } = response;      
+        Notification('success', data.message);
+        document.location.reload(true);
+      } catch (error) {
+        setLoading(false);
 
-      const { data } = error.response;
-      Notification('error', data.message);
+        const { data } = error.response;
+        Notification('error', data.message);
+      }
     }
   };
 
@@ -89,31 +93,47 @@ const Voting = ({ id, date }) => {
       <Radio.Group
         className="radio-list"
         onChange={onChange}
-        disabled={voted}
         value={value}
       >
         {movieList.map((movie) => (
-          <Radio value={movie.id} key={movie.film_code}>
+          <Radio
+            className={
+              !auth.isAuthenticated() || voted
+                ? 'not-selectable'
+                : null
+              }
+            value={movie.id}
+            key={movie.film_code}
+          >
             <Card id={movie.film_code} />
           </Radio>
         ))}
       </Radio.Group>
       
-      {voted 
+      {voted
         ? null
-        : (
-          <Button
-            loading={loading}
-            type="primary"
-            htmlType="submit"
-            className="primary-button"
-            onClick={handleSubmit}
-            disabled={value ? false : true}
-            style={{ width: "20%", marginTop: "50px" }}
-          >
-            VOTAR
-          </Button>
-        )}
+        : auth.isAuthenticated()
+        ? (
+            <Button
+              loading={loading}
+              type="primary"
+              htmlType="submit"
+              className="primary-button"
+              onClick={handleSubmit}
+              disabled={value ? false : true}
+              style={{ width: "20%", marginTop: "50px" }}
+            >
+              VOTAR
+            </Button>
+          )
+        : <p className="bottom-caption">
+            Faça
+            <span 
+              onClick={() => navigate('/login')}
+            > login </span>
+            para votar
+          </p>
+        }
     </div>
   ) : <Spin />
 };

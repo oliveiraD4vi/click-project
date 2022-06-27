@@ -1,5 +1,5 @@
 import { Modal } from 'antd';
-import { ArrowRightOutlined, CheckOutlined } from '@ant-design/icons';
+import { InfoCircleOutlined, CheckOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
 import { Notification } from '../../../../services/utils';
 
@@ -46,7 +46,7 @@ const Card = ({ id }) => {
 
         <div className="details">
           <span onClick={() => setVisible(true)}>
-            <ArrowRightOutlined />
+            <InfoCircleOutlined />
           </span>
         </div>
       </div>

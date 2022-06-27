@@ -97,3 +97,33 @@
     background-color: transparent !important;
   }
 }
+
+.ant-spin-dot-item {
+  background-color: #1FCE65 !important;
+}
+
+.voting-header {
+  width: 100%;
+  .date {
+    display: flex;
+    margin: 10px 0;
+    h2 {
+      font-size: 32px;
+      color: #1FCE65;
+      font-weight: bold;
+      margin: 0 !important;
+    }
+    .line {
+      bottom: 8px;
+      margin-left: 5px;
+      position: relative;
+      width: 100% !important;
+      border-bottom: 2px solid #1FCE65;
+    }
+  }
+  p {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 10px 0 20px 0 !important;
+  }
+}

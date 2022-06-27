@@ -4,32 +4,6 @@
   align-items: center;
   justify-content: center;
 
-  .voting-header {
-    width: 100%;
-    .date {
-      display: flex;
-      margin: 10px 0;
-      h2 {
-        font-size: 32px;
-        color: #1FCE65;
-        font-weight: bold;
-        margin: 0 !important;
-      }
-      .line {
-        bottom: 8px;
-        margin-left: 5px;
-        position: relative;
-        width: 100% !important;
-        border-bottom: 2px solid #1FCE65;
-      }
-    }
-    p {
-      font-size: 32px;
-      font-weight: bold;
-      margin: 10px 0 20px 0 !important;
-    }
-  }
-
   .radio-list {
     display: flex;
     .ant-radio-wrapper {
@@ -52,6 +26,30 @@
       }
     }
 
+    .not-selectable {
+      &:hover {
+        cursor: default !important;
+        .card-container {
+          .bottom-container {
+            border: 3px solid #EDEDED !important;
+          }
+        }
+      }
+
+      .card-container {
+        .bottom-container {
+          border: 3px solid #EDEDED !important;
+          justify-content: space-between !important;
+          .checkbox-container {
+            display: none !important;
+          }
+          .details {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
     .ant-radio-wrapper-checked {
       .card-container {
         .bottom-container {
@@ -59,12 +57,19 @@
           .checkbox {
             background-color: #1FCE65;
             border: 3px solid #1FCE65;
-            .anticon {
-              color: #FFFFFF;
-              display: block !important;
-            }
           }
         }
+      }
+    }
+  }
+
+  .bottom-caption {
+    font-size: 20px;
+    margin-top: 50px;
+    span {
+      color: #FF0000;
+      &:hover {
+        cursor: pointer;
       }
     }
   }
