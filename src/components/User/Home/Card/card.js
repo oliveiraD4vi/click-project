@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import './card.scss';
 
-const Card = ({ id, list, setList }) => {
+const Card = ({ id }) => {
   const [movieData, setMovieData] = useState(null);
 
   useEffect(() => {
@@ -27,12 +27,8 @@ const Card = ({ id, list, setList }) => {
 
   return movieData ? (
     <div className="card-container">
-      <div className="poster">
-        <img src={movieData.Poster} alt="movie poster" />
-      </div>
-      <div className="checkbox-container">
-        {movieData.Title}
-      </div>
+      <img src={movieData.Poster} alt="movie poster" />
+      <span>{movieData.Title}</span>
     </div>
   ) : null;
 };

@@ -30,13 +30,19 @@
     }
   }
 
-  .movies-list {
+  .radio-list {
     display: flex;
-    .card-container {
-      margin-left: 10px;
-      &:nth-child(1) {
-        margin: 0 !important;
+    .ant-radio-wrapper {
+      border: 3px solid #0E151F;
+      span {
+        padding: 0 !important;
       }
+      .ant-radio {
+        display: none !important;
+      }
+    }
+    .ant-radio-wrapper-checked {
+      border: 3px solid #1FCE65 !important;
     }
   }
 }
