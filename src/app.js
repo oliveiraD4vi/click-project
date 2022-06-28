@@ -1,10 +1,10 @@
-import './Styles/global.scss';
+import Routes from './routes';
+
+import './styles/global.scss';
 
 const App = () => {
   return (
-    <div className="app">
-      Click
-    </div>
+    <Routes />
   );
 }
 

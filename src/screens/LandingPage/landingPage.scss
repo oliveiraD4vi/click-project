@@ -1,0 +1,48 @@
+.landing-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 300px;
+  position: relative;
+  bottom: 80px;
+  right: 50px;
+
+  .left-container {
+    width: 750px;
+    position: relative;
+    left: 120px;
+    h2 {
+      color: #1FCE65;
+      font-size: 62px !important;
+      margin: 0 0 10px 0 !important;
+    }
+
+    p {
+      font-size: 24px !important;
+      line-height: 1.4 !important;
+      margin: 0 !important;
+    }
+
+    .btn-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin-top: 30px;
+
+      .primary-button,
+      .secondary-button {
+        width: 240px !important;
+        padding: 10px 25px !important;
+      }
+    }
+
+    .right-container {
+      img {
+        width: 900px;
+        position: relative;
+        top: 70px;
+      }
+    }
+  }
+}
