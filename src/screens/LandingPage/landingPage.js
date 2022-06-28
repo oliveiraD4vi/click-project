@@ -37,7 +37,10 @@ const Landing = () => {
         </div>
       </div>
       <div className="right-container">
-        <img src={Transparency} alt="landing image" />
+        <img src={Transparency} alt="landing" />
+        <a href='https://br.freepik.com/fotos-vetores-gratis/campanha-politica'>
+          Campanha politica vetor criado por pch.vector - br.freepik.com
+        </a>
       </div>
     </div>
   );
