@@ -20,13 +20,13 @@ const Layout = ({ children }) => {
 
   return (
     <div className="layout-container" style={{ height: '100vh' }}>
-      {userRoutes[path] ? (
+      {userRoutes[path] || path === '' ? (
         <Header />
       ) : null}
 
       <div
         className="main"
-        style={userRoutes[path]
+        style={userRoutes[path] || path === ''
           ? { height: '90%' }
           : { height: '100%' }
         }
