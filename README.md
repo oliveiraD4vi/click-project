@@ -30,4 +30,4 @@ See the [tags in this repository](https://github.com/oliveiraD4vi/click-project/
 
 ## 📄 LICENSE
 
-[MIT](https://github.com/oliveiraD4vi/click-project/LICENSE)
+[MIT](https://choosealicense.com/licenses/mit/)
