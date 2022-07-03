@@ -20,7 +20,11 @@ const Home = () => {
           <h2>{moment(votingData.updatedAt).format('DD/MM/YYYY')}</h2>
           <div className="line"></div>
         </div>
-        <p>Filme vencedor da última votação</p>
+        <p>
+          Filme vencedor com
+          <span> {votingData.percent}% </span>
+          dos votos
+        </p>
       </div>
 
       <div className="movie-container">
@@ -46,7 +50,7 @@ const Home = () => {
             </div>
 
             <div className="info">
-              <p>GÊRNERO</p>
+              <p>GÊNERO</p>
               <span>{movieData.Genre}</span>
             </div>
 
