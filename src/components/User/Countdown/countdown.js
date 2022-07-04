@@ -1,6 +1,6 @@
+import { Tooltip } from 'antd';
 import { useEffect, useState } from 'react';
 import { Notification } from '../../../services/utils';
-
 import { ClockCircleOutlined } from '@ant-design/icons';
 
 import api from '../../../services/api';
@@ -61,15 +61,17 @@ const Countdown = ({ targetTime, limitTime }) => {
   }
 
   return (
-    <div className={`${status} countdown-container`}>
-      <p><ClockCircleOutlined /></p>
-      <div className="timer">
-        {hours && <span>{hours}:</span>}
-        <span>
-          {minutes}:{seconds}
-        </span>
+    <Tooltip title="A votação acaba em">
+      <div className={`${status} countdown-container`}>
+          <p><ClockCircleOutlined /></p>
+        <div className="timer">
+          {hours && <span>{hours}:</span>}
+          <span>
+            {minutes}:{seconds}
+          </span>
+        </div>
       </div>
-    </div>
+    </Tooltip>
   );
 };
 

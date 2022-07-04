@@ -3,6 +3,8 @@
   text-align: center;
   display: flex;
   align-items: center;
+  transition: all 200ms ease-in-out;
+
   p {
     font-size: 30px;
     margin: 0 10px 0 0 !important;
@@ -21,12 +23,12 @@
   }
   &.middle {
     .timer {
-      color: #EE9E00;
+      color: #EE9E00 !important;
     }
   }
   &.end {
     .timer {
-      color: #F84D4D;
+      color: #F84D4D !important;
     }
   }
 }

@@ -92,13 +92,13 @@ const Voting = ({ id, date }) => {
         <div className="caption">
           <p>
             {voted 
-              ? 'Você já votou para essa exibição, aguarde o encerramento para ver o resultado'
+              ? 'Você já votou para essa exibição, aguarde para ver o resultado'
               : 'Qual filme você quer ver no cineEscola?'
             }
           </p>
           <Countdown
-            targetTime={7200 * 1000 + createdDate}
-            limitTime={7200 * 1000}
+            targetTime={1000 * 1000 + createdDate}
+            limitTime={1000 * 1000}
           />
         </div>
       </div>
