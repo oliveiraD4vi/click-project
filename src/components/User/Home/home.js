@@ -23,7 +23,7 @@ const Home = ({ list, lastId }) => {
         </div>
         <p>
           Filme vencedor com
-          <span> {votingData.percent}% </span>
+          <span> {parseFloat(votingData.percent).toFixed(2)}% </span>
           dos votos
         </p>
       </div>
