@@ -1,4 +1,4 @@
-import { Spin } from 'antd';
+import { Spin, Radio } from 'antd';
 import { useEffect, useState } from 'react';
 import { Notification } from '../../../services/utils';
 
@@ -9,7 +9,8 @@ import api from '../../../services/api';
 import './home.scss';
 import axios from 'axios';
 
-const Home = () => {
+const Home = ({ list, lastId }) => {
+  const [value, setValue] = useState(lastId);
   const [votingData, setVotingData] = useState(null);
   const [movieData, setMovieData] = useState(null);
 
@@ -20,7 +21,11 @@ const Home = () => {
           <h2>{moment(votingData.updatedAt).format('DD/MM/YYYY')}</h2>
           <div className="line"></div>
         </div>
-        <p>Filme vencedor da última votação</p>
+        <p>
+          Filme vencedor com
+          <span> {votingData.percent}% </span>
+          dos votos
+        </p>
       </div>
 
       <div className="movie-container">
@@ -46,7 +51,7 @@ const Home = () => {
             </div>
 
             <div className="info">
-              <p>GÊRNERO</p>
+              <p>GÊNERO</p>
               <span>{movieData.Genre}</span>
             </div>
 
@@ -97,7 +102,7 @@ const Home = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await api.get('/voting/last');
+        const response = await api.get(`/voting?id=${value}`);
         const { data } = response;
         setVotingData(data.voting);
       } catch (error) {
@@ -107,10 +112,26 @@ const Home = () => {
     }
 
     fetchData();
-  }, []);
+  }, [value]);
+
+  const onChange = ({ target: { value } }) => {
+    setValue(value);
+  };
   
   return votingData ? (
     <div className="home-container">
+      <Radio.Group
+        className="radio-voting-list"
+        onChange={onChange}
+        value={value}
+      >
+        {list.map((voting) => voting.percent || voting.id === lastId ? (
+          <Radio value={voting.id} key={voting.id}>
+            {moment(voting.updatedAt).format('DD/MM/YYYY')}
+          </Radio>
+        ) : null)}
+      </Radio.Group>
+
       {votingData.current
         ? <Voting
             id={votingData.id}

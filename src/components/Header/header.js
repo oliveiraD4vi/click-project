@@ -18,7 +18,7 @@ const Header = () => {
       switch (location.pathname) {
         case '/home': setCurrent('VOTING'); break;
         case '/about': setCurrent('ABOUT'); break;
-        default: break;
+        default: setCurrent(null); break;
       }
     }
   }, [location]);

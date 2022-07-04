@@ -130,7 +130,7 @@ const Voting = ({ id, date }) => {
             Faça
             <span 
               onClick={() => navigate('/login')}
-            > login </span>
+            > LOGIN </span>
             para votar
           </p>
         }
