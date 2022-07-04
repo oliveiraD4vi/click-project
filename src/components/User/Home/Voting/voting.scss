@@ -74,3 +74,53 @@
     }
   }
 }
+
+.confirm-modal {
+  .ant-modal-content {
+    opacity: 0.7;
+    background-color: #0E151F !important;
+    .ant-modal-close-x {
+      color: #FFFFFF !important;
+    }
+  }
+  .ant-modal-body {
+    padding: 20px 50px;
+    .confirm-modal-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .confirm {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #FFFFFF;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        .box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 75px;
+          height: 50px;
+          border: 2px solid #FFFFFF;
+          margin-right: 15px;
+          .anticon {
+            color: #FFFFFF;
+            font-size: 32px !important;
+          }
+        }
+        h1 {
+          font-weight: bold;
+          font-size: 32px;
+          color: #FFFFFF !important;
+          margin: 0 !important;
+          opacity: 1 !important;
+        }
+      }
+      span {
+        color: #FFFFFF;
+        font-size: 18px;
+      }
+    }
+  }
+}
