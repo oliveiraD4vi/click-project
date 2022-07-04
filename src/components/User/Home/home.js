@@ -73,10 +73,12 @@ const Home = ({ list, lastId }) => {
         </div>
       </div>
 
-      <div className="rodape">
-        <p>A próxima votação será lançada logo!</p>
-        <span>Aproveite o filme</span>
-      </div>
+      {votingData.id === lastId && (
+        <div className="rodape">
+          <p>A próxima votação será lançada logo!</p>
+          <span>Aproveite o filme</span>
+        </div>
+      )}
     </div>
   ) : null;
 
