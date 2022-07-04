@@ -135,9 +135,7 @@ const Home = ({ list, lastId }) => {
       {votingData.current
         ? <Voting
             id={votingData.id}
-            date={moment(
-              votingData.createdAt
-            ).format('DD/MM/YYYY')}
+            date={votingData.createdAt}
           />
         : noVoting
       }

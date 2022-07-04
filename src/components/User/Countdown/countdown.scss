@@ -1,0 +1,32 @@
+.countdown-container {
+  background-color: transparent !important;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  p {
+    font-size: 30px;
+    margin: 0 10px 0 0 !important;
+  }
+  .timer {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .anticon {
+    color: #0E151F !important;
+  }
+  &.start {
+    .timer {
+      color: #1FCE65;
+    }
+  }
+  &.middle {
+    .timer {
+      color: #EE9E00;
+    }
+  }
+  &.end {
+    .timer {
+      color: #F84D4D;
+    }
+  }
+}

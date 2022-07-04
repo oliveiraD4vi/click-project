@@ -6,6 +6,8 @@ import { auth } from '../../../../services/utils';
 
 import Card from '../Card/card';
 import api from '../../../../services/api';
+import Countdown from '../../Countdown/countdown';
+import moment from 'moment';
 
 import './voting.scss';
 
@@ -14,6 +16,8 @@ const Voting = ({ id, date }) => {
   const [movieList, setMovieList] = useState(null);
   const [voted, setVoted] = useState(false);
   const [value, setValue] = useState(null);
+  
+  let createdDate = Math.floor(+new Date(date));
 
   const navigate = useNavigate();
 
@@ -56,15 +60,17 @@ const Voting = ({ id, date }) => {
 
   useEffect(() => {
     async function fetchData() {
-      try {
-        const response = await api.get(
-          `/voting/check?userId=${auth.getId()}`
-        );
-        const { data } = response;
-        setVoted(data.voted);
-      } catch (error) {
-        const { data } = error.response;
-        Notification('error', data.message);
+      if (auth.isAuthenticated()) {
+        try {
+          const response = await api.get(
+            `/voting/check?userId=${auth.getId()}`
+          );
+          const { data } = response;
+          setVoted(data.voted);
+        } catch (error) {
+          const { data } = error.response;
+          Notification('error', data.message);
+        }
       }
     }
 
@@ -79,15 +85,22 @@ const Voting = ({ id, date }) => {
     <div className="voting-container">
       <div className="voting-header">
         <div className="date">
-          <h2>{date}</h2>
+          <h2>{moment(date).format('DD/MM/YYYY')}</h2>
           <div className="line"></div>
         </div>
-        <p>
-          {voted 
-            ? 'Você já votou para essa exibição, aguarde o encerramento para ver o resultado'
-            : 'Qual filme você quer ver no cineEscola?'
-          }
-        </p>
+
+        <div className="caption">
+          <p>
+            {voted 
+              ? 'Você já votou para essa exibição, aguarde o encerramento para ver o resultado'
+              : 'Qual filme você quer ver no cineEscola?'
+            }
+          </p>
+          <Countdown
+            targetTime={7200 * 1000 + createdDate}
+            limitTime={7200 * 1000}
+          />
+        </div>
       </div>
 
       <Radio.Group

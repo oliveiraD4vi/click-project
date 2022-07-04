@@ -144,6 +144,11 @@
       border-bottom: 2px solid #1FCE65;
     }
   }
+  .caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   p {
     font-size: 32px;
     font-weight: bold;
