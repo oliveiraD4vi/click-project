@@ -23,7 +23,7 @@ const Home = ({ list, lastId }) => {
         </div>
         <p>
           Filme vencedor com
-          <span> {votingData.percent}% </span>
+          <span> {parseFloat(votingData.percent).toFixed(2)}% </span>
           dos votos
         </p>
       </div>
@@ -135,9 +135,7 @@ const Home = ({ list, lastId }) => {
       {votingData.current
         ? <Voting
             id={votingData.id}
-            date={moment(
-              votingData.createdAt
-            ).format('DD/MM/YYYY')}
+            date={votingData.createdAt}
           />
         : noVoting
       }
