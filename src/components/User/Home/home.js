@@ -56,7 +56,7 @@ const Home = ({ list, lastId }) => {
             </div>
 
             <div className="info">
-              <p>DIRETORES</p>
+              <p>DIREÇÃO</p>
               <span>{movieData.Director}</span>
             </div>
 
@@ -80,7 +80,11 @@ const Home = ({ list, lastId }) => {
         </div>
       )}
     </div>
-  ) : null;
+  ) : (
+    <div className="loading">
+      <Spin />
+    </div>
+  );
 
   useEffect(() => {
     async function fetchData() {
@@ -117,6 +121,7 @@ const Home = ({ list, lastId }) => {
   }, [value]);
 
   const onChange = ({ target: { value } }) => {
+    setMovieData(null);
     setValue(value);
   };
   
@@ -142,7 +147,11 @@ const Home = ({ list, lastId }) => {
         : noVoting
       }
     </div>
-  ) : <Spin />;
+  ) : (
+    <div className="loading">
+      <Spin />
+    </div>
+  );
 };
 
 export default Home;

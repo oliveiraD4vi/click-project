@@ -170,7 +170,11 @@ const Voting = ({ id, date }) => {
         {modalContent}
       </Modal>
     </div>
-  ) : <Spin />
+  ) : (
+    <div className="loading">
+      <Spin />
+    </div>
+  );
 };
 
 export default Voting;

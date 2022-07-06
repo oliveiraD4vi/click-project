@@ -57,7 +57,7 @@ const Card = ({ id }) => {
       </div>
 
       <div className="info">
-        <p>DIRETORES</p>
+        <p>DIREÇÃO</p>
         <span>{movieData.Director}</span>
       </div>
 
