@@ -27,19 +27,14 @@ const Home = () => {
   }, []);
 
   return list && id ? (
-    <div
-      className="home-page"
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-      }}
-    >
+    <div className="home-page" style={{ height: "100%", width : "100%" }}>
       <HomeComponent list={list} lastId={id} />
     </div>
-  ) : <Spin />;
+  ) : (
+    <div className="loading">
+      <Spin />
+    </div>
+  );
 };
 
 export default Home;

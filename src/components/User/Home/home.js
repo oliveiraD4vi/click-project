@@ -1,6 +1,6 @@
 import { Spin, Radio } from 'antd';
 import { useEffect, useState } from 'react';
-import { Notification } from '../../../services/utils';
+import { Notification, auth } from '../../../services/utils';
 
 import moment from 'moment';
 import Voting from './Voting/voting';
@@ -8,6 +8,7 @@ import api from '../../../services/api';
 
 import './home.scss';
 import axios from 'axios';
+import Suggestion from '../Suggestion/suggestion';
 
 const Home = ({ list, lastId }) => {
   const [value, setValue] = useState(lastId);
@@ -23,7 +24,7 @@ const Home = ({ list, lastId }) => {
         </div>
         <p>
           Filme vencedor com
-          <span> {parseFloat(votingData.percent).toFixed(2)}% </span>
+          <span> {parseFloat(votingData.percent).toFixed(1)}% </span>
           dos votos
         </p>
       </div>
@@ -56,7 +57,7 @@ const Home = ({ list, lastId }) => {
             </div>
 
             <div className="info">
-              <p>DIRETORES</p>
+              <p>DIREÇÃO</p>
               <span>{movieData.Director}</span>
             </div>
 
@@ -72,15 +73,12 @@ const Home = ({ list, lastId }) => {
           </div>
         </div>
       </div>
-
-      {votingData.id === lastId && (
-        <div className="rodape">
-          <p>A próxima votação será lançada logo!</p>
-          <span>Aproveite o filme</span>
-        </div>
-      )}
     </div>
-  ) : null;
+  ) : (
+    <div className="loading">
+      <Spin />
+    </div>
+  );
 
   useEffect(() => {
     async function fetchData() {
@@ -117,6 +115,7 @@ const Home = ({ list, lastId }) => {
   }, [value]);
 
   const onChange = ({ target: { value } }) => {
+    setMovieData(null);
     setValue(value);
   };
   
@@ -139,10 +138,15 @@ const Home = ({ list, lastId }) => {
             id={votingData.id}
             date={votingData.createdAt}
           />
-        : noVoting
-      }
+        : noVoting}
+
+      {movieData && auth.isAuthenticated() && <Suggestion />}
     </div>
-  ) : <Spin />;
+  ) : (
+    <div className="loading">
+      <Spin />
+    </div>
+  );
 };
 
 export default Home;

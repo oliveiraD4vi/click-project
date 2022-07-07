@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Notification } from '../../../../services/utils';
 import { auth } from '../../../../services/utils';
-import { CheckOutlined } from '@ant-design/icons';
+import { ArrowRightOutlined, CheckOutlined } from '@ant-design/icons';
 
 import Card from '../Card/card';
 import api from '../../../../services/api';
@@ -32,6 +32,18 @@ const Voting = ({ id, date }) => {
         <h1>Seu voto foi registrado com sucesso!</h1>
       </div>
       <span>Agora é só esperar pelo resultado</span>
+
+      <Button
+        type="primary"
+        htmlType="submit"
+        className="link-button"
+        style={{ marginTop: "15px" }}
+        onClick={() => {
+          document.location.reload(true);
+        }}
+      >
+        Acompanhar votação <ArrowRightOutlined />
+      </Button>
     </div>
   );
 
@@ -170,7 +182,11 @@ const Voting = ({ id, date }) => {
         {modalContent}
       </Modal>
     </div>
-  ) : <Spin />
+  ) : (
+    <div className="loading">
+      <Spin />
+    </div>
+  );
 };
 
 export default Voting;

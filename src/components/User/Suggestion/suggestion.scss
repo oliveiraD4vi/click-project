@@ -1,0 +1,19 @@
+.suggestion-container {
+  width: 800px;
+  margin-top: 50px;
+  padding: 10px 0 60px 0;
+
+  h1 {
+    font-size: 24px;
+  }
+  
+  .ant-form-item-control-input-content {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    .primary-button {
+      width: 250px;
+      margin: 0 !important;
+    }
+  }
+}

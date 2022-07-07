@@ -1,5 +1,10 @@
 import { lazy, Suspense } from 'react';
-import { Route, Routes as RoutesWrapper, BrowserRouter } from 'react-router-dom';
+import {
+  Route,
+  Routes as RoutesWrapper,
+  BrowserRouter,
+  Navigate,
+} from 'react-router-dom';
 import { Spin } from 'antd';
 
 const Layout = lazy(() => import('./screens/Layout/layout'));
@@ -57,6 +62,8 @@ const Routes = () => {
               </Layout>
             }
           />
+
+          <Route path="*" element={<Navigate to="/" />} />
         </RoutesWrapper>
       </BrowserRouter>
     </Suspense>
