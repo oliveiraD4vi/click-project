@@ -6,7 +6,7 @@
   align-items: center;
 
   .radio-voting-list {
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
@@ -84,17 +84,6 @@
         .tecno-info {
           padding: 20px 300px 20px 0;
         }
-      }
-    }
-
-    .rodape {
-      width: 100%;
-      text-align: center;
-      margin-top: 20px;
-      p {
-        font-weight: bold;
-        margin-bottom: 5px !important;
-        font-size: 18px;
       }
     }
   }

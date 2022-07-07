@@ -27,7 +27,7 @@ const Home = () => {
   }, []);
 
   return list && id ? (
-    <div className="home-page" style={{ height: "100%" }}>
+    <div className="home-page" style={{ height: "100%", width : "100%" }}>
       <HomeComponent list={list} lastId={id} />
     </div>
   ) : (
