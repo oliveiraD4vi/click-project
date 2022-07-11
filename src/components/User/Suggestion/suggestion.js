@@ -42,7 +42,13 @@ const Suggestion = () => {
 
   return (
     <div className="suggestion-container">
-      <h1>Sugira um filme para ser exibido</h1>
+      <h1>EI, VOCÊ!</h1>
+      <h2>Que tal sugerir um filme para ser exibido?</h2>
+      <p>
+        Sua sugestão será analisada por um de nossos administradores e poderá
+        ser escolhida para uma votação futura! É só digitar o nome do filme
+        abaixo ou dos filmes, se tiver mais de um em mente, e enviar.
+      </p>
 
       <Form form={form} className="suggestion-form" onFinish={handleSubmit}>
         <Form.Item
@@ -63,7 +69,6 @@ const Suggestion = () => {
           ]}
         >
           <TextArea
-            rows={4}
             maxLength={80}
             disabled={disabled}
             autoSize={{ minRows: 1, maxRows: 1 }}

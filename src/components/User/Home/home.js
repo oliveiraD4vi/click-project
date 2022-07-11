@@ -120,7 +120,10 @@ const Home = ({ list, lastId }) => {
   };
   
   return votingData ? (
-    <div className="home-container">
+    <div
+      className="home-container"
+      style={movieData ? {minHeight: '100%'} : {height: '100%'}}
+    >
       <Radio.Group
         className="radio-voting-list"
         onChange={onChange}
