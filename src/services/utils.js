@@ -5,8 +5,8 @@ const AUTH = 'USER';
 export function Notification(type, message) {
   const params = {
     message,
-    duration: 0,
-    placement: 'top'
+    duration: 3,
+    placement: 'topRight'
   };
 
   switch (type) {

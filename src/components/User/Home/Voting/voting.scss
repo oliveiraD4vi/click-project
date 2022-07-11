@@ -7,12 +7,10 @@
   .radio-list {
     display: flex;
     .ant-radio-wrapper {
-      margin: 0 20px 0 0 !important;
+      margin: 0 10px 0 0 !important;
       &:hover {
         .card-container {
-          .bottom-container {
-            border: 3px solid #1FCE65;
-          }
+          border: 4px solid #1FCE65;
         }
       }
       &:last-child {
@@ -30,15 +28,13 @@
       &:hover {
         cursor: default !important;
         .card-container {
-          .bottom-container {
-            border: 3px solid #EDEDED !important;
-          }
+          border: 3px solid #EDEDED !important;
         }
       }
 
       .card-container {
+        border: 3px solid #EDEDED !important;
         .bottom-container {
-          border: 3px solid #EDEDED !important;
           justify-content: space-between !important;
           .checkbox-container {
             display: none !important;
@@ -52,8 +48,8 @@
 
     .ant-radio-wrapper-checked {
       .card-container {
+        border: 4px solid #1FCE65;
         .bottom-container {
-          border: 3px solid #1FCE65;
           .checkbox {
             background-color: #1FCE65;
             border: 3px solid #1FCE65;
@@ -67,9 +63,59 @@
     font-size: 20px;
     margin-top: 50px;
     span {
-      color: #FF0000;
+      color: #1FCE65;
       &:hover {
         cursor: pointer;
+      }
+    }
+  }
+}
+
+.confirm-modal {
+  .ant-modal-content {
+    opacity: 0.7;
+    background-color: #0E151F !important;
+    .ant-modal-close-x {
+      color: #FFFFFF !important;
+    }
+  }
+  .ant-modal-body {
+    padding: 20px 50px;
+    .confirm-modal-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .confirm {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #FFFFFF;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        .box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 75px;
+          height: 50px;
+          border: 2px solid #FFFFFF;
+          margin-right: 15px;
+          .anticon {
+            color: #FFFFFF;
+            font-size: 32px !important;
+          }
+        }
+        h1 {
+          font-weight: bold;
+          font-size: 32px;
+          color: #FFFFFF !important;
+          margin: 0 !important;
+          opacity: 1 !important;
+        }
+      }
+      span {
+        color: #FFFFFF;
+        font-size: 18px;
       }
     }
   }

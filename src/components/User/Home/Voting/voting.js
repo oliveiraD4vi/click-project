@@ -1,36 +1,60 @@
-import { Radio, Spin, Button } from 'antd';
+import { Radio, Spin, Button, Modal } from 'antd';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Notification } from '../../../../services/utils';
 import { auth } from '../../../../services/utils';
+import { ArrowRightOutlined, CheckOutlined } from '@ant-design/icons';
 
 import Card from '../Card/card';
 import api from '../../../../services/api';
+import Countdown from '../../Countdown/countdown';
+import moment from 'moment';
 
 import './voting.scss';
 
 const Voting = ({ id, date }) => {
+  const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [movieList, setMovieList] = useState(null);
   const [voted, setVoted] = useState(false);
   const [value, setValue] = useState(null);
+  
+  let createdDate = Math.floor(+new Date(date));
 
   const navigate = useNavigate();
+
+  const modalContent = (
+    <div className="confirm-modal-content">
+      <div className="confirm">
+        <div className="box">
+          <CheckOutlined />
+        </div>
+        <h1>Seu voto foi registrado com sucesso!</h1>
+      </div>
+      <span>Agora é só esperar pelo resultado</span>
+
+      <Button
+        type="primary"
+        htmlType="submit"
+        className="link-button"
+        style={{ marginTop: "15px" }}
+        onClick={() => {
+          document.location.reload(true);
+        }}
+      >
+        Acompanhar votação <ArrowRightOutlined />
+      </Button>
+    </div>
+  );
 
   const handleSubmit = async () => {
     setLoading(true);
 
     if (value && auth.getId()) {
       try {
-        const response = await api.put(
-          `/voting/vote?userId=${auth.getId()}&filmId=${value}`
-        );
-        const { data } = response;      
-        Notification('success', data.message);
-        document.location.reload(true);
+        await api.put(`/voting/vote?userId=${auth.getId()}&filmId=${value}`);
+        setVisible(true);
       } catch (error) {
-        setLoading(false);
-
         const { data } = error.response;
         Notification('error', data.message);
       }
@@ -56,15 +80,18 @@ const Voting = ({ id, date }) => {
 
   useEffect(() => {
     async function fetchData() {
-      try {
-        const response = await api.get(
-          `/voting/check?userId=${auth.getId()}`
-        );
-        const { data } = response;
-        setVoted(data.voted);
-      } catch (error) {
-        const { data } = error.response;
-        Notification('error', data.message);
+      if (auth.isAuthenticated()) {
+        try {
+          const response = await api.get(
+            `/voting/check?userId=${auth.getId()}`
+          );
+          const { data } = response;
+          console.log(data);
+          setVoted(data.voted);
+        } catch (error) {
+          const { data } = error.response;
+          Notification('error', data.message);
+        }
       }
     }
 
@@ -79,15 +106,22 @@ const Voting = ({ id, date }) => {
     <div className="voting-container">
       <div className="voting-header">
         <div className="date">
-          <h2>{date}</h2>
+          <h2>{moment(date).format('DD/MM/YYYY')}</h2>
           <div className="line"></div>
         </div>
-        <p>
-          {voted 
-            ? 'Você já votou para essa exibição, aguarde o encerramento para ver o resultado'
-            : 'Qual filme você quer ver no cineEscola?'
-          }
-        </p>
+
+        <div className="caption">
+          <p>
+            {voted 
+              ? 'Você já votou para essa exibição, aguarde para ver o resultado'
+              : 'Qual filme você quer ver no cineEscola?'
+            }
+          </p>
+          <Countdown
+            targetTime={86400 * 1000 + createdDate}
+            limitTime={86400 * 1000}
+          />
+        </div>
       </div>
 
       <Radio.Group
@@ -130,12 +164,29 @@ const Voting = ({ id, date }) => {
             Faça
             <span 
               onClick={() => navigate('/login')}
-            > login </span>
+            > LOGIN </span>
             para votar
           </p>
         }
+
+      <Modal
+        title={null}
+        footer={null}
+        visible={visible}
+        centered
+        className="confirm-modal"
+        onCancel={() => {
+          document.location.reload(true);
+        }}
+      >
+        {modalContent}
+      </Modal>
     </div>
-  ) : <Spin />
+  ) : (
+    <div className="loading">
+      <Spin />
+    </div>
+  );
 };
 
 export default Voting;

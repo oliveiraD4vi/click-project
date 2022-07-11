@@ -21,7 +21,7 @@ const About = () => {
         <div className="right-container">
           <h2>Sobre o Click</h2>
           <p>
-            O projeto click é uma trabalho aprimorado e desenvolvido durante a disciplina de Engenharia de Software
+            O projeto click é uma trabalho desenvolvido e aprimorado durante a disciplina de Engenharia de Software
             ministrada pela professora Diana Nogueira na Universidade Federal do Ceará (UFC) campus Quixadá.
             O propósito do projeto é auxiliar na votação de filmes que serão exibidos no cinema de uma escola
             profissionalizante durante o horário de almoço, a fim de evitar confusões e injustiças na escolha do
@@ -31,13 +31,13 @@ const About = () => {
       </div>
 
       <div className="about-bottom">
-        <Tooltip title="Repositório frontend">
+        <Tooltip title="Repositório Frontend">
           <a className="front" href="https://github.com/oliveiraD4vi/click-project" target="_blank" rel="noreferrer">
             <GithubOutlined />
           </a>
         </Tooltip>
 
-        <Tooltip title="Repositório backend">
+        <Tooltip title="Repositório API">
           <a className="back" href="https://github.com/oliveiraD4vi/click-project-back" target="_blank" rel="noreferrer">
             <GithubOutlined />
           </a>
@@ -45,6 +45,6 @@ const About = () => {
       </div>
     </div>
   );
-}
+};
 
 export default About;

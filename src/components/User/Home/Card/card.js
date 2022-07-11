@@ -52,12 +52,12 @@ const Card = ({ id }) => {
       </div>
 
       <div className="info">
-        <p>GÊRNERO</p>
+        <p>GÊNERO</p>
         <span>{movieData.Genre}</span>
       </div>
 
       <div className="info">
-        <p>DIRETORES</p>
+        <p>DIREÇÃO</p>
         <span>{movieData.Director}</span>
       </div>
 
