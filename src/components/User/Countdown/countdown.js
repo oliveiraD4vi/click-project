@@ -39,9 +39,7 @@ const Countdown = ({ targetTime, limitTime }) => {
     async function fetchData() {
       if (Date.now() > new Date(targetTime)) {
         try {
-          const response = await api.put('/voting/end?cancel=false');
-          const { data } = response;      
-          Notification('success', data.message);
+          await api.put('/voting/end?cancel=false');
           document.location.reload(true);
         } catch (error) {
           const { data } = error.response;

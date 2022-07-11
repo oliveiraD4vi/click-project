@@ -31,13 +31,13 @@ const About = () => {
       </div>
 
       <div className="about-bottom">
-        <Tooltip title="Repositório frontend">
+        <Tooltip title="Repositório Frontend">
           <a className="front" href="https://github.com/oliveiraD4vi/click-project" target="_blank" rel="noreferrer">
             <GithubOutlined />
           </a>
         </Tooltip>
 
-        <Tooltip title="Repositório backend">
+        <Tooltip title="Repositório API">
           <a className="back" href="https://github.com/oliveiraD4vi/click-project-back" target="_blank" rel="noreferrer">
             <GithubOutlined />
           </a>
