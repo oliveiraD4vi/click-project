@@ -118,8 +118,8 @@ const Voting = ({ id, date }) => {
             }
           </p>
           <Countdown
-            targetTime={7200 * 1000 + createdDate}
-            limitTime={7200 * 1000}
+            targetTime={86400 * 1000 + createdDate}
+            limitTime={86400 * 1000}
           />
         </div>
       </div>
