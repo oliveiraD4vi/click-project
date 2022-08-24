@@ -16,7 +16,7 @@ yarn start
 ```
 to see the app running locally.
 
-This application is under development, so to run the app properly you will need the API running locally. In order to get it, see the [API repository](https://github.com/oliveiraD4vi/click-project-back).
+This application is under development, see the [API repository](https://github.com/oliveiraD4vi/click-project-back). You can see the aplication running on [Click](https://click-project.vercel.app/).
 
 ## Build with
 
