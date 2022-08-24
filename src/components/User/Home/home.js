@@ -85,7 +85,7 @@ const Home = ({ list, lastId }) => {
       if (votingData && votingData.result) {
         try {
           const response = await axios.get(
-            `http://www.omdbapi.com/?&apikey=e28771f6&type=movie&i=${votingData.result}`
+            `https://www.omdbapi.com/?&apikey=e28771f6&type=movie&i=${votingData.result}`
           );
           const { data } = response;
           setMovieData(data);

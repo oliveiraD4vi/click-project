@@ -22,7 +22,7 @@ const Card = ({ id }) => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `http://www.omdbapi.com/?&apikey=e28771f6&type=movie&i=${id}`
+          `https://www.omdbapi.com/?&apikey=e28771f6&type=movie&i=${id}`
         );
         const { data } = response;
         setMovieData(data);
