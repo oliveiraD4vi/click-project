@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { userRoutes } from '../../services/constants';
+import { auth } from '../../services/utils';
 
 import Header from '../../components/Header/header';
-import { auth } from '../../services/utils';
 
 const Layout = ({ children }) => {
   const [path, setPath] = useState('');
@@ -20,16 +20,10 @@ const Layout = ({ children }) => {
 
   return (
     <div className="layout-container" style={{ height: '100vh' }}>
-      {userRoutes[path] || path === '' ? (
-        <Header />
-      ) : null}
-
+      <Header />
       <div
         className="main"
-        style={userRoutes[path] || path === ''
-          ? { height: '90%' }
-          : { height: '100%' }
-        }
+        style={{ height: '90%' }}
       >
         {children}
       </div>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://api-click-project.herokuapp.com',
+  baseURL: process.env.REACT_APP_BASE_URL,
   headers: {
     Accept: '*/*',
     'Content-Type': 'application/json',

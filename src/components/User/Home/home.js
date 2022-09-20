@@ -5,10 +5,10 @@ import { Notification, auth } from '../../../services/utils';
 import moment from 'moment';
 import Voting from './Voting/voting';
 import api from '../../../services/api';
-
-import './home.scss';
 import axios from 'axios';
 import Suggestion from '../Suggestion/suggestion';
+
+import './home.scss';
 
 const Home = ({ list, lastId }) => {
   const [value, setValue] = useState(lastId);

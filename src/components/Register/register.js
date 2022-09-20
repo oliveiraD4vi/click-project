@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { MailOutlined, LockOutlined, UserOutlined, FieldNumberOutlined } from '@ant-design/icons';
 import { Form, Input, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
-
 import { Notification } from '../../services/utils';
+
 import api from '../../services/api';
 
 import './register.scss';
